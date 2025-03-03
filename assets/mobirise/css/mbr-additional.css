@@ -148,8 +148,8 @@ body {
 }
 .btn-primary,
 .btn-primary:active {
-  background-color: #149dcc !important;
-  border-color: #149dcc !important;
+  background-color: #3b47df !important;
+  border-color: #3b47df !important;
   color: #ffffff !important;
 }
 .btn-primary:hover,
@@ -1415,12 +1415,12 @@ body {
 }
 .cid-rzp16Yw0i3 .navbar {
   padding: .5rem 0;
-  background: #333333;
+  background: #111111;
   transition: none;
   min-height: 77px;
 }
 .cid-rzp16Yw0i3 .navbar-dropdown.bg-color.transparent.opened {
-  background: #333333;
+  background: #111111;
 }
 .cid-rzp16Yw0i3 a {
   font-style: normal;

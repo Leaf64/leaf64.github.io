@@ -208,6 +208,22 @@ body {
 	transform: translateY(0px) translateX(0px);
 }
 
+.topocontainer {
+    position: relative; /* Zapewnia, że tło zostanie poprawnie ustawione */
+    width: 100%;
+    /* height: 100vh; Możesz dostosować do pełnej wysokości zawartości */
+    overflow: hidden; /* Ukrywa ewentualne przewinięcia */
+}
+
+#backgroundSvg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: auto;
+    height: 170%;
+    z-index: -1; /* Umieszcza SVG za treścią */
+    object-fit: cover; /* Dostosowuje rozmiar SVG do ekranu */
+}
 
 /* topographic map css */
 
@@ -227,26 +243,7 @@ body {
 	overflow: hidden;
 } */
 
-/* Tło z SVG */
-.topocontainer {
-    background: url('topographic-map.svg') no-repeat center center;
-    background-size: cover; /* Sprawia, że mapa wypełnia całą sekcję */
-    position: relative;
-    z-index: 1; /* Ustawia tło na najniższy poziom */
-	padding: 50px 0; /* Padding, aby dodać przestrzeń wewnątrz sekcji */
-}
 
-/* Dla sekcji z listą, możemy dodać filtr, aby tekst był bardziej czytelny */
-.topocontainer::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background-color: rgba(0, 0, 0, 0.4);  */
-    z-index: 1;
-}
 
 .cipsko {
 	z-index: 20; position: relative;
@@ -281,5 +278,28 @@ body {
         4px 4px 0 #fff,
         -4px 4px 0 #fff,
         4px -4px 0 #fff,
-        -4px -4px 0 #fff;
+        -4px -4px 0 #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff,
+		0px 0px 15px #fff;
+
 }
