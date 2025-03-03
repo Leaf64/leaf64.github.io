@@ -482,15 +482,52 @@
         svgHOrig = svgElem.getAttribute('height');
         var minW = 320;
 
-        for (var i = 0; i < path.length; i++) {
-            var length = path[i].getTotalLength();
-            path[i].style.transition = path[i].style.WebkitTransition = 'none';
-            path[i].style.strokeDasharray = length + ' ' + length;
-            path[i].style.strokeDashoffset = length;
-            path[i].getBoundingClientRect();
-            path[i].style.transition = path[i].style.WebkitTransition = 'stroke-dashoffset 10s ease';
-            path[i].style.strokeDashoffset = '0';
+        function startAnimation() {
+            for (var i = 0; i < path.length; i++) {
+                var length = path[i].getTotalLength();
+                path[i].style.transition = path[i].style.WebkitTransition = 'none';
+                path[i].style.strokeDasharray = length + ' ' + length;
+                path[i].style.strokeDashoffset = length;
+                path[i].getBoundingClientRect();
+                path[i].style.transition = path[i].style.WebkitTransition = 'stroke-dashoffset 10s ease';
+                path[i].style.strokeDashoffset = '0';
+            }
         }
+
+// Funkcja resetująca SVG
+function resetSVG() {
+
+    function isSectionVisible() {
+    var section = document.getElementById("content4-9");
+    var rect = section.getBoundingClientRect();
+    return rect.top >= 0 && rect.bottom <= window.innerHeight;
+}
+
+    if (isSectionVisible()) {
+        console.log("Animacja nie resetuje się, bo jesteś w sekcji #content4-9");
+        return; // Wyjdź z funkcji, nie resetuj SVG
+    }
+
+    var container = document.getElementById("topocontainer");
+    
+    // Skopiuj oryginalne SVG jako string
+    var originalSVG = svgElem.outerHTML;
+
+    // Usuń obecne SVG
+    svgElem.remove();
+
+    // Wstaw ponownie kopię SVG po krótkim czasie
+    setTimeout(function () {
+        container.insertAdjacentHTML("afterbegin", originalSVG);
+        svgElem = document.querySelector("#topocontainer svg"); // Zaktualizuj referencję
+        path = document.querySelectorAll(".line"); // Ponownie pobierz ścieżki
+        startAnimation(); // Uruchom animację
+    }, 50);
+}
+
+        document.querySelector('.nav-link[href="index.html#content4-9"]').addEventListener("click", resetSVG);
+
+        startAnimation();
 
         var svgCover = function () {
 
