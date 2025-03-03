@@ -108,26 +108,25 @@
         </div>
     </section>
 
-    <section class="mbr-section content4 cid-rzp5DYLlVd" id="content4-9">
+    <section class="topocontainer" >
+    <section class="mbr-section content4 cid-rzp5DYLlVd" id="content4-9" style="background-color: transparent;">
         <div class="container">
-            <div class="media-container-row">
+            <div class="media-container-row cipsko">
                 <div class="title col-12 col-md-8">
-                    <h2 class="align-center pb-3 mbr-fonts-style display-1">Oferta</h2>
+                    <h2 class="align-center pb-3 mbr-fonts-style display-1" >Oferta</h2>
                     <h3 class="mbr-section-subtitle align-center mbr-light mbr-fonts-style display-5">Geopion swoim klientom oferuje szeroki zakres usług geodezyjno-kartograficznych niezbędnych w każdym procesie inwestycyjnym, takich jak:</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="mbr-section article content12 cid-rzp5FRSGcO" id="content12-a">
-
-
-        <div class="container">
-            <div class="media-container-row">
+    <section class="mbr-section article content12 cid-rzp5FRSGcO" id="content12-a" style="background-color: transparent;">
+        <div class="container cipsko" >
+            <div class="media-container-row" >
                 <div class="mbr-text counter-container col-12 col-md-8 mbr-fonts-style display-7">
                     <ul>
-                        <li><strong>MAPY DO CELÓW PROJEKTOWYCH W FORMIE WEKTOROWEJ I ANALOGOWE
-                        </strong></li><li><strong>TYCZENIE BUDYNKÓW, BUDOWLI</strong></li>
+                        <li ><strong>MAPY DO CELÓW PROJEKTOWYCH W FORMIE WEKTOROWEJ I ANALOGOWE</strong></li>
+                        <li><strong>TYCZENIE BUDYNKÓW, BUDOWLI</strong></li>
                         <li><strong>TYCZENIA SIECI UZBROJENIA TERENU</strong></li>
                         <li><strong>INWENTARYZACJE PODWYKONAWCZE BUDYNKÓW, BUDOWLI, SIECI, PRZYŁĄCZY, DRÓG ITP.</strong></li><li><strong>OBSŁUGA INWESTYCJI DROGOWYCH</strong></li><li><strong>POMIARY OBJĘTOŚCI MAS ZIEMNYCH</strong></li><li><strong>POMIARY REALIZACYJNE</strong></li><li><strong>PODZIAŁY NIERUCHOMOŚCI</strong></li><li><strong>ROZGRANICZENIA NIERUCHOMOŚCI</strong></li><li><strong>MAPY DO CELÓW PRAWNYCH, WYKAZY SYNCHRONIZACYJNE</strong></li><li><strong>USTALENIA PRZEBIEGU GRANIC NIERUCHOMOŚCI</strong></li><li><strong>WYZNACZENIA PUNKTÓW GRANICZNYCH, WZNOWIENIA ZNAKÓW GRANICZNYCH</strong></li>
                     </ul>
@@ -135,7 +134,7 @@
             </div>
         </div>
     </section>
-
+</section>
     <section class="mbr-section article content10 cid-rzp7jDZGfH" id="content10-d">
 
 
@@ -314,8 +313,62 @@
                 });
             </script>
 
-            
+            <script>
+                var svgContainer = document.querySelector('#topocontainer');
+var svgElem = document.querySelector('#topocontainer svg');
+var path = document.querySelectorAll('.line');
+var svgWOrig;
+var svgHOrig;
+svgWOrig = svgElem.getAttribute('width');
+svgHOrig = svgElem.getAttribute('height');
+var minW = 320;
 
+for(var i = 0; i < path.length; i++) {
+	var length = path[i].getTotalLength();
+	path[i].style.transition = path[i].style.WebkitTransition = 'none';
+	path[i].style.strokeDasharray = length + ' ' + length;
+	path[i].style.strokeDashoffset = length;
+	path[i].getBoundingClientRect();
+	path[i].style.transition = path[i].style.WebkitTransition = 'stroke-dashoffset 10s ease';
+	path[i].style.strokeDashoffset = '0';
+}
+
+var svgCover = function() {
+
+    // Find the current width and height of the viewport
+    var winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    var winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+
+    // Resize the svg container to match the viewport
+    svgContainer.style.width = winWidth + 'px';
+    svgContainer.style.height = winHeight + 'px';
+
+    // Find the largest scale factor of horizontal/vertical
+    var scaleH = winWidth / svgWOrig;
+    var scaleV = winHeight / svgHOrig;
+    var scale = scaleH > scaleV ? scaleH : scaleV;
+
+    // Don't allow scaled width to be less than min width
+    if (scale * svgWOrig < minW) {
+        scale = minW / svgWOrig;
+    }
+
+    // Scale the svg
+    var svgNewWidth = scale * svgWOrig;
+    var svgNewHeight = scale * svgHOrig;
+    svgElem.style.width = svgNewWidth + 'px';
+    svgElem.style.height = svgNewHeight + 'px';
+
+    // Align to middle by scrolling within the container
+    svgContainer.scrollLeft = (svgNewWidth - winWidth) / 2;
+    svgContainer.scrollTop = (svgNewHeight - winHeight) / 2;
+  
+};
+
+svgCover();
+
+window.addEventListener('resize', svgCover);
+            </script>
 
         </body>
         </html>

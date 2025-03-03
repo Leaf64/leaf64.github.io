@@ -209,4 +209,77 @@ body {
 }
 
 
-/* button Contact */
+/* topographic map css */
+
+/* svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	opacity: .4;
+}
+
+.topo-container {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+} */
+
+/* Tło z SVG */
+.topocontainer {
+    background: url('topographic-map.svg') no-repeat center center;
+    background-size: cover; /* Sprawia, że mapa wypełnia całą sekcję */
+    position: relative;
+    z-index: 1; /* Ustawia tło na najniższy poziom */
+	padding: 50px 0; /* Padding, aby dodać przestrzeń wewnątrz sekcji */
+}
+
+/* Dla sekcji z listą, możemy dodać filtr, aby tekst był bardziej czytelny */
+.topocontainer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-color: rgba(0, 0, 0, 0.4);  */
+    z-index: 1;
+}
+
+.cipsko {
+	z-index: 20; position: relative;
+	text-shadow: 1px 1px 0 #fff,
+        -1px 1px 0 #fff,
+        1px -1px 0 #fff,
+        -1px -1px 0 #fff,
+        0px 1px 0 #fff,
+        0px -1px 0 #fff,
+        -1px 0px 0 #fff,
+        1px 0px 0 #fff,
+        2px 2px 0 #fff,
+        -2px 2px 0 #fff,
+        2px -2px 0 #fff,
+        -2px -2px 0 #fff,
+        0px 2px 0 #fff,
+        0px -2px 0 #fff,
+        -2px 0px 0 #fff,
+        2px 0px 0 #fff,
+        1px 2px 0 #fff,
+        -1px 2px 0 #fff,
+        1px -2px 0 #fff,
+        -1px -2px 0 #fff,
+        2px 1px 0 #fff,
+        -2px 1px 0 #fff,
+        2px -1px 0 #fff,
+        -2px -1px 0 #fff,
+        3px 3px 0 #fff,
+        -3px 3px 0 #fff,
+        3px -3px 0 #fff,
+        -3px -3px 0 #fff,
+        4px 4px 0 #fff,
+        -4px 4px 0 #fff,
+        4px -4px 0 #fff,
+        -4px -4px 0 #fff;
+}
