@@ -245,7 +245,7 @@ body {
 
 
 
-.cipsko {
+.whiteglow {
 	z-index: 20; position: relative;
 	text-shadow: 1px 1px 0 #fff,
         -1px 1px 0 #fff,
@@ -301,5 +301,8 @@ body {
 		0px 0px 15px #fff,
 		0px 0px 15px #fff,
 		0px 0px 15px #fff;
+}
 
+.whiteglow li::before{
+	text-shadow: none;
 }

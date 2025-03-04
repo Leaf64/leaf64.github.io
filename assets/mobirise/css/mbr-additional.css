@@ -157,14 +157,14 @@ body {
 .btn-primary.focus,
 .btn-primary.active {
   color: #ffffff !important;
-  background-color: #0d6786 !important;
-  border-color: #0d6786 !important;
+  background-color: #2f29a3 !important;
+  border-color: #2f29a3 !important;
 }
 .btn-primary.disabled,
 .btn-primary:disabled {
   color: #ffffff !important;
-  background-color: #0d6786 !important;
-  border-color: #0d6786 !important;
+  background-color: #2f29a3 !important;
+  border-color: #2f29a3 !important;
 }
 .btn-secondary,
 .btn-secondary:active {
@@ -267,7 +267,7 @@ body {
   border-color: #8b7d4e !important;
 }
 .btn-white {
-  color: #333333 !important;
+  color: #111111 !important;
 }
 .btn-white,
 .btn-white:active {
@@ -291,8 +291,8 @@ body {
 }
 .btn-black,
 .btn-black:active {
-  background-color: #333333 !important;
-  border-color: #333333 !important;
+  background-color: #111111 !important;
+  border-color: #111111 !important;
   color: #ffffff !important;
 }
 .btn-black:hover,
@@ -440,14 +440,14 @@ body {
 .btn-black-outline.focus,
 .btn-black-outline.active {
   color: #ffffff;
-  background-color: #333333;
-  border-color: #333333;
+  background-color: #111111;
+  border-color: #111111;
 }
 .btn-black-outline.disabled,
 .btn-black-outline:disabled {
   color: #ffffff !important;
-  background-color: #333333 !important;
-  border-color: #333333 !important;
+  background-color: #111111 !important;
+  border-color: #111111 !important;
 }
 .btn-white-outline,
 .btn-white-outline:active,
@@ -459,7 +459,7 @@ body {
 .btn-white-outline:hover,
 .btn-white-outline:focus,
 .btn-white-outline.focus {
-  color: #333333;
+  color: #111111;
   background-color: #ffffff;
   border-color: #ffffff;
 }
@@ -1511,7 +1511,7 @@ body {
   padding-bottom: 0;
 }
 .cid-rzp16Yw0i3 .dropdown .dropdown-menu {
-  background: #333333;
+  background: #111111;
   display: none;
   position: absolute;
   min-width: 5rem;
@@ -1853,7 +1853,7 @@ body {
   line-height: 20px;
   transition: all .2s;
   color: #ffffff;
-  background: #149dcc;
+  background: #3b47df;
   width: 25px;
   height: 25px;
   border-radius: 50%;
@@ -1862,7 +1862,7 @@ body {
 .cid-rzp7jDZGfH {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #2e2e2e;
+  background-color: #111111;
 }
 .cid-rzp7jDZGfH .line {
   background-color: #ffffff;
@@ -1982,5 +1982,5 @@ body {
 .cid-rzvxAMmqZT {
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: #2e2e2e;
+  background-color: #111111;
 }
