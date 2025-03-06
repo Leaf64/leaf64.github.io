@@ -337,10 +337,17 @@ body {
   border-top: none; /* Brak górnej krawędzi */
   border-right: none; /* Brak prawej krawędzi */
 
+	width: 100%;
+	min-width: 170px;
   cursor: pointer;
-  padding: 10px 20px; /* Odstępy wewnętrzne */
+  /* padding: 12px 20px; */
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-top: 1px;
+  /* margin-left: 10px; */
+  margin-right: 10px;
   border-radius: 0; /* Kąty proste */
-  overflow: hidden; /* Zapewnia, że tło nie wyjdzie poza granice przycisku */
+  /* overflow: hidden;  */
 }
 
 .altbtn::before {
@@ -357,17 +364,29 @@ body {
 .altbtn span {
   position: relative;
   display: inline-flex;
-  align-items: center; /* Wyrównanie ikony z tekstem */
-  justify-content: center; /* Wyrównanie ikony z tekstem */
-  font-size: 14px;
-  font-weight: bold;
-  letter-spacing: 2px;
+  align-items: center; 
+  justify-content: center; 
+  /* font-size: 14px; */
+  /* font-weight: bold; */
+  /* font-style: normal; */
+  /* letter-spacing: 2px; */
+
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 400;
+  text-shadow: 0 0 1px rgba(255,255,255,0.3);
+  /* font-size: 0.8em; */
+  font-size: 15px;
+  /* font-style: normal; */
+  
   text-transform: uppercase;
   color: rgb(255, 255, 255); /* Tekst i ikona zawsze białe */
 }
 
 .altbtn span.mbri-mobile2 {
-  margin-right: 10px; /* Odstęp między ikoną a tekstem */
+  margin-right: 5px; /* Odstęp między ikoną a tekstem */
+  margin-left: 0px;
   font-size: 18px; /* Możesz zmienić rozmiar ikony */
 }
 
@@ -384,8 +403,25 @@ body {
   top: 100%; /* Tło chowa się z powrotem na hover */
 }
 
+/* .nav-link .mbri-bookmark {
+    margin-left: 7px;
+  }
 
+  @media (min-width: 1025px) {
+    .nav-link .mbri-bookmark {
+      margin-left: 15px; 
+    }
+  }
 
+  .nav-link .mbri-home {
+    margin-left: 16px;
+  }
+
+  @media (min-width: 1025px) {
+    .nav-link .mbri-home {
+      margin-left: 15px; 
+    }
+  } */
 
 
 
