@@ -306,3 +306,90 @@ body {
 .whiteglow li::before{
 	text-shadow: none;
 }
+
+.altbtn:active,
+.altbtn:hover,
+.altbtn:focus {
+  outline: 0!important;
+  outline-offset: 0;
+}
+
+.altbtn::before,
+.altbtn::after {
+  position: absolute;
+  content: "";
+}
+
+.altbtn-holder {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1000px;
+}
+
+.altbtn {
+  position: relative;
+  display: inline-block;
+  background-color: transparent;
+
+  border-left: 2px solid #3b47df; /* Lewa krawędź */
+  border-bottom: 2px solid #3b47df; /* Dolna krawędź */
+  border-top: none; /* Brak górnej krawędzi */
+  border-right: none; /* Brak prawej krawędzi */
+
+  cursor: pointer;
+  padding: 10px 20px; /* Odstępy wewnętrzne */
+  border-radius: 0; /* Kąty proste */
+  overflow: hidden; /* Zapewnia, że tło nie wyjdzie poza granice przycisku */
+}
+
+.altbtn::before {
+  content: "";
+  position: absolute;
+  top: 100%; /* Tło zaczyna się poza przyciskiem */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #3b47df;
+  transition: top 0.3s ease-out; /* Animacja ruchu tła */
+}
+
+.altbtn span {
+  position: relative;
+  display: inline-flex;
+  align-items: center; /* Wyrównanie ikony z tekstem */
+  justify-content: center; /* Wyrównanie ikony z tekstem */
+  font-size: 14px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255); /* Tekst i ikona zawsze białe */
+}
+
+.altbtn span.mbri-mobile2 {
+  margin-right: 10px; /* Odstęp między ikoną a tekstem */
+  font-size: 18px; /* Możesz zmienić rozmiar ikony */
+}
+
+.altbtn-1 span:hover {
+  color: rgb(255, 255, 255); /* Napis i ikona pozostają białe */
+}
+
+/* 1.hover-filled-slide-down */
+.altbtn.hover-filled-slide-down::before {
+  top: 0%; /* Tło wychodzi na całą wysokość przycisku */
+}
+
+.altbtn.hover-filled-slide-down:hover::before {
+  top: 100%; /* Tło chowa się z powrotem na hover */
+}
+
+
+
+
+
+
+
+
+  
+  

@@ -83,10 +83,15 @@
                 </ul>
 
                 <div class="navbar-buttons ">
-                    <a class="btn btn-sm btn-primary nav-link link text-white display-4" href="index.html#contacts3-i"
-                        style="font-size: 18px; padding-left: 0px; padding-right: 30px; padding-top:4px; padding-bottom: 6px;">
-                        <span class="mbri-mobile2 mbr-iconfont mbr-iconfont-btn" style="margin-left: 15px;"></span>
-                        KONTAKT</a>
+                    
+                        <div class="altbtn-holder">
+
+                        <a class="altbtn altbtn-1 hover-filled-slide-down nav-link link" href="index.html#contacts3-i">
+                            <span class="mbri-mobile2 mbr-iconfont mbr-iconfont-btn" style="margin-left: 15px;"></span>
+                            <span>KONTAKT</span>
+                        </a>
+                        </div>
+
                 </div>
             </div>
         </nav>
@@ -470,46 +475,37 @@
     </script>
 
     <script>
-        var svgContainer = document.querySelector('#topocontainer');
-        var svgElem = document.querySelector('#topocontainer svg');
+       var svgContainer = document.querySelector('#topocontainer');
+var svgElem = document.querySelector('#topocontainer svg');
+var path = document.querySelectorAll('.line');
 
+var svgWOrig = svgElem.getAttribute('width');
+var svgHOrig = svgElem.getAttribute('height');
+var minW = 320;
 
-        var path = document.querySelectorAll('.line');
+function startAnimation() {
+    for (var i = 0; i < path.length; i++) {
+        var length = path[i].getTotalLength();
+        path[i].style.transition = 'none';
+        path[i].style.strokeDasharray = length + ' ' + length;
+        path[i].style.strokeDashoffset = length;
+        path[i].getBoundingClientRect(); // Wymuszenie reflow
+        path[i].style.transition = 'stroke-dashoffset 10s ease';
+        path[i].style.strokeDashoffset = '0';
+    }
+}
 
-        var svgWOrig;
-        var svgHOrig;
-        svgWOrig = svgElem.getAttribute('width');
-        svgHOrig = svgElem.getAttribute('height');
-        var minW = 320;
-
-        function startAnimation() {
-            for (var i = 0; i < path.length; i++) {
-                var length = path[i].getTotalLength();
-                path[i].style.transition = path[i].style.WebkitTransition = 'none';
-                path[i].style.strokeDasharray = length + ' ' + length;
-                path[i].style.strokeDashoffset = length;
-                path[i].getBoundingClientRect();
-                path[i].style.transition = path[i].style.WebkitTransition = 'stroke-dashoffset 10s ease';
-                path[i].style.strokeDashoffset = '0';
-            }
-        }
+// Sprawdzamy teraz, czy cały `#topocontainer` jest niewidoczny
+function isContainerFullyOutOfView() {
+    var container = document.getElementById("topocontainer");
+    var rect = container.getBoundingClientRect();
+    return rect.bottom <= 0 || rect.top >= window.innerHeight;
+}
 
 // Funkcja resetująca SVG
 function resetSVG() {
-
-    function isSectionVisible() {
-    var section = document.getElementById("content4-9");
-    var rect = section.getBoundingClientRect();
-    return rect.top >= 0 && rect.bottom <= window.innerHeight;
-}
-
-    if (isSectionVisible()) {
-        console.log("Animacja nie resetuje się, bo jesteś w sekcji #content4-9");
-        return; // Wyjdź z funkcji, nie resetuj SVG
-    }
-
     var container = document.getElementById("topocontainer");
-    
+
     // Skopiuj oryginalne SVG jako string
     var originalSVG = svgElem.outerHTML;
 
@@ -525,47 +521,49 @@ function resetSVG() {
     }, 50);
 }
 
-        document.querySelector('.nav-link[href="index.html#content4-9"]').addEventListener("click", resetSVG);
+var wasContainerOutOfView = true; // Zakładamy, że na starcie kontener był poza ekranem
+window.addEventListener("scroll", function () {
+    var containerOutOfView = isContainerFullyOutOfView();
 
-        startAnimation();
+    // Jeśli kontener zniknął i teraz ponownie stał się widoczny
+    if (!containerOutOfView && wasContainerOutOfView) {
+        console.log("Sekcja #topocontainer pojawiła się ponownie, animacja uruchomiona!");
+        resetSVG(); // Uruchom animację
+    }
 
-        var svgCover = function () {
+    // Zaktualizuj stan widoczności sekcji
+    wasContainerOutOfView = containerOutOfView;
+});
 
-            // Find the current width and height of the viewport
-            var winWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-            var winHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+startAnimation();
 
-            // Resize the svg container to match the viewport
-            svgContainer.style.width = winWidth + 'px';
-            svgContainer.style.height = winHeight + 'px';
+var svgCover = function () {
+    var winWidth = window.innerWidth;
+    var winHeight = window.innerHeight;
 
-            // Find the largest scale factor of horizontal/vertical
-            var scaleH = winWidth / svgWOrig;
-            var scaleV = winHeight / svgHOrig;
-            var scale = scaleH > scaleV ? scaleH : scaleV;
+    svgContainer.style.width = winWidth + 'px';
+    svgContainer.style.height = winHeight + 'px';
 
-            // Don't allow scaled width to be less than min width
-            if (scale * svgWOrig < minW) {
-                scale = minW / svgWOrig;
-            }
+    var scaleH = winWidth / svgWOrig;
+    var scaleV = winHeight / svgHOrig;
+    var scale = Math.max(scaleH, scaleV);
 
-            // Scale the svg
-            var svgNewWidth = scale * svgWOrig;
-            var svgNewHeight = scale * svgHOrig;
-            svgElem.style.width = svgNewWidth + 'px';
-            svgElem.style.height = svgNewHeight + 'px';
+    if (scale * svgWOrig < minW) {
+        scale = minW / svgWOrig;
+    }
 
-            // Align to middle by scrolling within the container
-            svgContainer.scrollLeft = (svgNewWidth - winWidth) / 2;
-            svgContainer.scrollTop = (svgNewHeight - winHeight) / 2;
+    var svgNewWidth = scale * svgWOrig;
+    var svgNewHeight = scale * svgHOrig;
+    svgElem.style.width = svgNewWidth + 'px';
+    svgElem.style.height = svgNewHeight + 'px';
 
-        };
+    svgContainer.scrollLeft = (svgNewWidth - winWidth) / 2;
+    svgContainer.scrollTop = (svgNewHeight - winHeight) / 2;
+};
 
-        svgCover();
-
-        window.addEventListener('resize', svgCover);
+svgCover();
+window.addEventListener('resize', svgCover);
     </script>
-
 </body>
 
 </html>
