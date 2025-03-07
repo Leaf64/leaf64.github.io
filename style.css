@@ -423,6 +423,25 @@ body {
     }
   }
 
+  .zdog-canvas {
+	background: transparent;
+	max-width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+  }
+
+  .logo-wrapper {
+    position: relative;
+    left: -100px; /* Przesuń logo bardziej w lewo */
+}
+
+@media (max-width: 1024px) {
+    .logo-wrapper {
+        left: 0; /* Na mniejszych ekranach resetujemy przesunięcie */
+    }
+}
+
 
 
 
