@@ -337,15 +337,15 @@ body {
   border-top: none; /* Brak górnej krawędzi */
   border-right: none; /* Brak prawej krawędzi */
 
-	width: 100%;
+	/* width: 100%;	 */
 	min-width: 170px;
+
   cursor: pointer;
   /* padding: 12px 20px; */
   padding-top: 12px;
   padding-bottom: 12px;
   margin-top: 1px;
   /* margin-left: 10px; */
-  margin-right: 10px;
   border-radius: 0; /* Kąty proste */
   /* overflow: hidden;  */
 }
@@ -403,7 +403,7 @@ body {
   top: 100%; /* Tło chowa się z powrotem na hover */
 }
 
-/* .nav-link .mbri-bookmark {
+.nav-link .mbri-bookmark {
     margin-left: 7px;
   }
 
@@ -421,7 +421,7 @@ body {
     .nav-link .mbri-home {
       margin-left: 15px; 
     }
-  } */
+  }
 
 
 
