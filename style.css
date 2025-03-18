@@ -442,9 +442,16 @@ body {
     }
 }
 
+#gmap_canvas {
+    margin: 0;
+    padding: 0;
+}
 
+.mbr-text li {
+    display: flex;
+    align-items: center; /* Wyrównuje znaczniki do środka tekstu */
+}
 
-
-
-  
-  
+.navbar-caption-wrap a {
+    pointer-events: none; /* Wyłącza interakcję z linkiem */
+}
