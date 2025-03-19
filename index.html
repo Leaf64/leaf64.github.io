@@ -494,7 +494,7 @@
             <div class="media-container-row align-center mbr-white">
                 <div class="col-12">
                     <p class="mbr-text mb-0 mbr-fonts-style display-7">
-                        © Geopion - Usługi geodezyjne i kartograficzne<br>Paulina Bawęda</p>
+                        © Geopion - Usługi geodezyjne i kartograficzne<br>Paulina Bawęda-Pieja</p>
                 </div>
             </div>
         </div>
@@ -651,6 +651,40 @@ var svgCover = function () {
 svgCover();
 window.addEventListener('resize', svgCover);
     </script>
+
+
+<script>
+    window.onload = function() {
+    const link = document.querySelector('iframe + a');
+    if (link) {
+        link.style.display = 'none'; // Ukrywa link
+    }
+};
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    // Zidentyfikuj przycisk 'Kontakt'
+    const kontaktButton = document.querySelector('.altbtn');
+    
+    // Zidentyfikuj przycisk, który zamyka menu (toggle)
+    const navbarToggle = document.querySelector('.navbar-toggler');
+
+    // Obsługuje kliknięcie na przycisk "Kontakt"
+    if (kontaktButton && navbarToggle) {
+        kontaktButton.addEventListener('click', function () {
+            // Jeśli navbar jest rozwinięty, zamknij go
+            if (navbarToggle.classList.contains('collapsed')) {
+                return;  // Jeżeli jest już zamknięte, nic nie rób
+            }
+
+            // Zmień stan przycisku hamburgera na zamknięty (czyli "collapsed")
+            navbarToggle.click();
+        });
+    }
+});
+</script>
+
 </body>
 
 </html>

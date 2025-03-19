@@ -454,4 +454,12 @@ body {
 
 .navbar-caption-wrap a {
     pointer-events: none; /* Wyłącza interakcję z linkiem */
+	font-size: min(60px, 8vw) !important; /* Skaluje się od 60px do 8% szerokości ekranu */
+    white-space: nowrap;
+}
+
+@media (max-width: 1700px), (max-height: 850px) {
+    .mbr-arrow {
+        display: none !important;
+    }
 }
