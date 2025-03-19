@@ -663,7 +663,15 @@ window.addEventListener('resize', svgCover);
 </script>
 
 <script>
+
+
+
     document.addEventListener('DOMContentLoaded', function () {
+
+        if (window.innerWidth >= 1024) {
+        return; // Jeśli szerokość jest większa niż 1024px, nie wykonuj skryptu
+    }
+
     // Zidentyfikuj przycisk 'Kontakt'
     const kontaktButton = document.querySelector('.altbtn');
     
