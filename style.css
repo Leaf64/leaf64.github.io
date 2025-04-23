@@ -97,6 +97,10 @@ body {
 	height: 100%;
 } 
 
+.cl-effect-6 a.text-white:hover,
+.cl-effect-6 a.text-white:focus {
+    color: rgb(255, 255, 255) !important;
+}
 
 /* Effect 14: border switch */
 .cl-effect-14 a {
