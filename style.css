@@ -439,7 +439,16 @@ body {
 @media (max-width: 1024px) {
     .logo-wrapper {
         left: 0; /* Na mniejszych ekranach resetujemy przesunięcie */
+		margin-bottom: 45px; 
     }
+
+	.contacts3 .title h2 {
+		margin-bottom: 0px; /* domyślnie może być np. 3rem – zmniejszamy */
+	  }
+
+	  .cid-rzp7XwLT7q .title {
+		padding-bottom: 1rem;
+	}
 }
 
 #gmap_canvas {
