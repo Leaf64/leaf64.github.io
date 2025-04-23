@@ -585,7 +585,6 @@ window.addEventListener('resize', svgCover);
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-
         if (window.innerWidth >= 1024) {
         return; // Jeśli szerokość jest większa niż 1024px, nie wykonuj skryptu
     }
@@ -600,12 +599,14 @@ window.addEventListener('resize', svgCover);
     if (kontaktButton && navbarToggle) {
         kontaktButton.addEventListener('click', function () {
             // Jeśli navbar jest rozwinięty, zamknij go
-            if (navbarToggle.classList.contains('collapsed')) {
+            setTimeout(() => {
+                if (navbarToggle.classList.contains('collapsed')) {
                 return;  // Jeżeli jest już zamknięte, nic nie rób
             }
 
             // Zmień stan przycisku hamburgera na zamknięty (czyli "collapsed")
             navbarToggle.click();
+            }, 10);
         });
     }
 });
